@@ -21,7 +21,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           # 选择要使用的 pnpm 版本
-          version: 8.15.6
+          version: 8
           # 使用 pnpm 安装依赖
           run_install: true
 
@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           # 选择要使用的 node 版本
-          node-version: 20.12.1
+          node-version: 20
           # 缓存 pnpm 依赖
           cache: pnpm
 
@@ -46,6 +46,7 @@ jobs:
           target_branch: gh-pages
           # 部署目录为 VuePress 的默认输出目录
           build_dir: docs/.vuepress/dist
-        # env:
-        #   # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
